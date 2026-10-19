@@ -34,9 +34,11 @@ void StatusEffectManager::updateEffects(Character* target)
         switch (effect.type)
         {
         case StatusType::ATK_BOOST:
+            // Can bo sung khi co API thay doi tan cong
             break;
 
         case StatusType::DEF_BOOST:
+            // Can bo sung khi co API thay doi phong thu
             break;
 
         case StatusType::REGEN:
@@ -53,19 +55,19 @@ void StatusEffectManager::updateEffects(Character* target)
 
         case StatusType::SLOW:
             target->setSpeed(
-                std::max(
-                    0,
-                    target->getStats().spd -
-                    static_cast<int>(effect.value)
-                )
+                std::max(0, target->getStats().spd -
+                static_cast<int>(effect.value))
             );
             break;
 
         case StatusType::WEAKNESS:
+            // Can bo sung khi co API thay doi tan cong
             break;
         }
-        effect.durationTurns--;
+
+        --effect.durationTurns;
     }
+
     m_effects.erase(
         std::remove_if(
             m_effects.begin(),
@@ -77,6 +79,7 @@ void StatusEffectManager::updateEffects(Character* target)
         ),
         m_effects.end()
     );
+
     if (!hasEffect(StatusType::STUN))
     {
         target->setStunned(false);
