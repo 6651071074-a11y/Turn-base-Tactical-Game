@@ -1,5 +1,5 @@
-#include "StatusEffect.h"
-#include "../src/entities/Character.h"
+#include "OOP-14_StatusEffect.h"
+#include "../entities/Character.h"
 #include <algorithm>
 void StatusEffectManager::addEffect(
     StatusType type,
