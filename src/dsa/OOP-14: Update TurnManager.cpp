@@ -1,5 +1,5 @@
-#include "TurnManager.h"
-#include "../src/entities/Character.h"
+#include "OOP-14_TurnManager.h"
+#include "../entities/Character.h"
 #include <algorithm>
 
 bool CharacterCompare::operator()(
